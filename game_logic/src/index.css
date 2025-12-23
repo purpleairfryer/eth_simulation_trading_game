@@ -76,3 +76,56 @@ canvas {
   image-rendering: crisp-edges;
 }
 
+/* Tutorial popover styles */
+.driver-popover {
+  background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%) !important;
+  border: 1px solid rgba(52, 211, 153, 0.3) !important;
+  color: #fff !important;
+}
+
+.driver-popover-title {
+  color: #4ade80 !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+}
+
+.driver-popover-description {
+  color: #d1d5db !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+}
+
+.driver-popover-progress-text {
+  color: #9ca3af !important;
+}
+
+.driver-popover-prev-btn,
+.driver-popover-next-btn {
+  background: #059669 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+
+.driver-popover-prev-btn:hover,
+.driver-popover-next-btn:hover {
+  background: #047857 !important;
+}
+
+.driver-popover-close-btn {
+  color: #9ca3af !important;
+}
+
+.driver-popover-close-btn:hover {
+  color: #fff !important;
+}
+
+.driver-popover-arrow-side-left.driver-popover-arrow,
+.driver-popover-arrow-side-right.driver-popover-arrow,
+.driver-popover-arrow-side-top.driver-popover-arrow,
+.driver-popover-arrow-side-bottom.driver-popover-arrow {
+  border-color: #064e3b !important;
+}

@@ -16,7 +16,7 @@ export const PositionsTable = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 to-emerald-950 rounded-lg p-4 shadow-xl border border-emerald-900/30 h-full flex flex-col">
+    <div id="positions-table" className="bg-gradient-to-br from-slate-900 to-emerald-950 rounded-lg p-4 shadow-xl border border-emerald-900/30 h-full flex flex-col">
       <h3 className="text-lg font-bold text-emerald-400 mb-3">Player Positions</h3>
 
       <div className="overflow-x-auto flex-1">

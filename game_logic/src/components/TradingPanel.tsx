@@ -57,7 +57,7 @@ export const TradingPanel = () => {
       </div>
 
       {/* Percentage Slider */}
-      <div className="mb-4">
+      <div id="position-size" className="mb-4">
         <label className="text-sm text-gray-400 mb-2 block">
           Position Size: {percentage}% of balance
         </label>
@@ -78,7 +78,7 @@ export const TradingPanel = () => {
       </div>
 
       {/* Leverage Slider */}
-      <div className="mb-4">
+      <div id="leverage-slider" className="mb-4">
         <label className="text-sm text-gray-400 mb-2 block">
           Leverage: {leverage}x
           {!leverageUnlocked && (
@@ -119,7 +119,7 @@ export const TradingPanel = () => {
       </div>
 
       {/* Action Buttons */}
-      <div className="grid grid-cols-2 gap-3 mb-3">
+      <div id="trade-buttons" className="grid grid-cols-2 gap-3 mb-3">
         <button
           onClick={handleLong}
           disabled={balance <= 0}
@@ -137,7 +137,7 @@ export const TradingPanel = () => {
       </div>
 
       {/* Play/Pause + Speed Controls */}
-      <div className="flex gap-2">
+      <div id="game-controls" className="flex gap-2">
         {/* Play/Pause Button - Half width */}
         <button
           onClick={isPlaying ? pauseGame : startGame}

@@ -6,6 +6,7 @@ import { TradingPanel } from './components/TradingPanel';
 import { PositionsTable } from './components/PositionsTable';
 import { AdContainer } from './components/AdContainer';
 import { NewsTickerToast } from './components/NewsTickerToast';
+import { TutorialGuide } from './components/TutorialGuide';
 
 function App() {
   const { initializeGame, isLoading, error } = useGameStore();
@@ -88,6 +89,9 @@ function App() {
 
       {/* News Toast Overlay */}
       <NewsTickerToast />
+
+      {/* Interactive Tutorial */}
+      <TutorialGuide />
     </div>
   );
 }

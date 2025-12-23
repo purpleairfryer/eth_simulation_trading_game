@@ -291,7 +291,7 @@ export const ChartCanvas = () => {
   }, [priceHistory, currentPrice, gameTime, allMarketData]);
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 to-emerald-950 rounded-lg p-4 shadow-xl border border-emerald-900/30 h-full flex flex-col">
+    <div id="chart-panel" className="bg-gradient-to-br from-slate-900 to-emerald-950 rounded-lg p-4 shadow-xl border border-emerald-900/30 h-full flex flex-col">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-xl font-bold text-emerald-400">ETH/USD</h2>
         <div className="flex items-center gap-3">
