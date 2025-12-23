@@ -22,7 +22,6 @@ export const TradingPanel = () => {
   const currentSpeedMultiplier = gameSpeed / GAME_SPEED;
 
   const positionSize = (balance * percentage) / 100;
-  const notionalValue = positionSize * leverage;
 
   const handleLong = () => {
     if (balance > 0) {
