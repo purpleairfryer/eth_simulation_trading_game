@@ -4,9 +4,9 @@ import { useGameStore } from '../store/gameStore';
 export const NewsTickerToast = () => {
   const { activeNews } = useNewsEngine();
   const { dismissNews } = useGameStore();
-  
+
   if (!activeNews) return null;
-  
+
   const getBgColor = () => {
     switch (activeNews.type) {
       case 'bullish':
@@ -17,7 +17,7 @@ export const NewsTickerToast = () => {
         return 'from-slate-900/95 to-slate-800/95 border-slate-500';
     }
   };
-  
+
   return (
     <div className="fixed top-4 right-4 left-4 md:left-auto md:w-96 z-50 animate-slide-in-down">
       <div className={`bg-gradient-to-r ${getBgColor()} rounded-lg shadow-2xl border-2 p-4`}>

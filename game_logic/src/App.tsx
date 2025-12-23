@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { useGameStore } from './store/gameStore';
 import { useGameLoop } from './hooks/useGameLoop';
 import { ChartCanvas } from './components/ChartCanvas';
@@ -92,6 +93,9 @@ function App() {
 
       {/* Interactive Tutorial */}
       <TutorialGuide />
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </div>
   );
 }
