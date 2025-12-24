@@ -9,6 +9,8 @@ A React-based trading game that lets you replay historical ETH price data from A
 - **Leverage Trading**: Unlock up to 10x leverage as you grow your portfolio
 - **Realistic Liquidations**: Isolated margin with automatic position closure
 - **News Engine**: Weekly market recap headlines based on price movements
+- **Interactive Tutorial**: First-time user onboarding with step-by-step guide
+- **Audio Experience**: Synthwave background music and trading sound effects
 - **Performance Optimized**: Canvas-based charting for smooth 60fps rendering
 - **Mobile Responsive**: Fully playable on mobile and tablet devices
 
@@ -127,6 +129,11 @@ Located in `../data/news/`:
 ## Data Sources
 
 - **ETH Price Data**: [Ethereum Price Data (Binance API) 2017-Now](https://www.kaggle.com/datasets/novandraanugrah/ethereum-price-data-binance-api-2017now) by Novandra Anugrah on Kaggle
+
+## Audio Credits
+
+- **Background Music**: [Synthwave 80s Retro Background Music](https://pixabay.com/music/synthwave-synthwave-80s-retro-background-music-400483/) by [Andrii Poradovskyi](https://pixabay.com/users/lnplusmusic-47631836/) from [Pixabay](https://pixabay.com/)
+- **Sound Effects**: [Cash Register Purchase](https://pixabay.com/sound-effects/cash-register-purchase-87313/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) from [Pixabay](https://pixabay.com/)
 
 ## License
 

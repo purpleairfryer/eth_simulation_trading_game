@@ -69,6 +69,15 @@ export const TutorialGuide = () => {
                         side: 'top',
                         align: 'center'
                     }
+                },
+                {
+                    element: '#settings-button',
+                    popover: {
+                        title: '🔊 Audio Settings',
+                        description: 'Toggle background music and sound effects on/off. Your preferences are saved automatically.',
+                        side: 'left',
+                        align: 'center'
+                    }
                 }
             ],
             onDestroyed: () => {

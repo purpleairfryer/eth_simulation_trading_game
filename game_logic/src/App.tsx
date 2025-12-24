@@ -8,6 +8,7 @@ import { PositionsTable } from './components/PositionsTable';
 import { AdContainer } from './components/AdContainer';
 import { NewsTickerToast } from './components/NewsTickerToast';
 import { TutorialGuide } from './components/TutorialGuide';
+import { SettingsButton } from './components/SettingsButton';
 
 function App() {
   const { initializeGame, isLoading, error } = useGameStore();
@@ -93,6 +94,9 @@ function App() {
 
       {/* Interactive Tutorial */}
       <TutorialGuide />
+
+      {/* Audio Settings Button */}
+      <SettingsButton />
 
       {/* Vercel Analytics */}
       <Analytics />

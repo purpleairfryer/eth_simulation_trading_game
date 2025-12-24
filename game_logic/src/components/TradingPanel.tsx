@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
+import { useAudioStore } from '../store/audioStore';
 import { POSITION_PERCENTAGES, LEVERAGE_UNLOCK_THRESHOLD, GAME_SPEED, SPEED_MULTIPLIERS } from '../constants';
 
 export const TradingPanel = () => {
@@ -23,15 +24,19 @@ export const TradingPanel = () => {
 
   const positionSize = (balance * percentage) / 100;
 
+  const playSfx = useAudioStore((state) => state.playSfx);
+
   const handleLong = () => {
     if (balance > 0) {
       openPosition('long', percentage, leverage);
+      playSfx();
     }
   };
 
   const handleShort = () => {
     if (balance > 0) {
       openPosition('short', percentage, leverage);
+      playSfx();
     }
   };
 
