@@ -49,6 +49,8 @@ export interface GameState {
   // UI State
   isLoading: boolean;
   error: string | null;
+  isGameOver: boolean;
+  gameOverReason: 'bankrupt' | 'completed' | null;
 }
 
 export interface PnLResult {

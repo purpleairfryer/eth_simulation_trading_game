@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { GameState, Position, NewsEvent } from '../types';
 import {
   GAME_START_TIME,
+  GAME_END_TIME,
   INITIAL_BALANCE,
   GAME_SPEED,
   LEVERAGE_UNLOCK_THRESHOLD
@@ -57,6 +58,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
   activeNews: null,
   isLoading: true,
   error: null,
+  isGameOver: false,
+  gameOverReason: null,
 
   // Initialize game - load all year data at once
   initializeGame: async () => {
@@ -100,7 +103,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
       totalEquity: INITIAL_BALANCE,
       leverageUnlocked: INITIAL_BALANCE >= LEVERAGE_UNLOCK_THRESHOLD,
       newsHistory: [],
-      activeNews: null
+      activeNews: null,
+      isGameOver: false,
+      gameOverReason: null
     });
     get().initializeGame();
   },
@@ -140,6 +145,37 @@ export const useGameStore = create<GameStore>((set, get) => ({
     );
     // Check if leverage should be unlocked (once unlocked, stays unlocked)
     const leverageUnlocked = state.leverageUnlocked || totalEquity >= LEVERAGE_UNLOCK_THRESHOLD;
+
+    // Check for game over conditions
+    // 1. Bankrupt: totalEquity <= 0 and no positions
+    if (totalEquity <= 0 && positions.length === 0) {
+      set({
+        isPlaying: false,
+        isGameOver: true,
+        gameOverReason: 'bankrupt',
+        gameTime: newGameTime,
+        currentPrice,
+        positions,
+        balance,
+        totalEquity
+      });
+      return;
+    }
+
+    // 2. Completed: reached end of data
+    if (newGameTime >= GAME_END_TIME) {
+      set({
+        isPlaying: false,
+        isGameOver: true,
+        gameOverReason: 'completed',
+        gameTime: GAME_END_TIME,
+        currentPrice,
+        positions,
+        balance,
+        totalEquity
+      });
+      return;
+    }
 
     set({
       gameTime: newGameTime,

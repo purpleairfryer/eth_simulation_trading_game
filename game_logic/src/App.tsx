@@ -9,6 +9,7 @@ import { AdContainer } from './components/AdContainer';
 import { NewsTickerToast } from './components/NewsTickerToast';
 import { TutorialGuide } from './components/TutorialGuide';
 import { SettingsButton } from './components/SettingsButton';
+import { GameOverScreen } from './components/GameOverScreen';
 
 function App() {
   const { initializeGame, isLoading, error } = useGameStore();
@@ -97,6 +98,9 @@ function App() {
 
       {/* Audio Settings Button */}
       <SettingsButton />
+
+      {/* Game Over Screen */}
+      <GameOverScreen />
 
       {/* Vercel Analytics */}
       <Analytics />
