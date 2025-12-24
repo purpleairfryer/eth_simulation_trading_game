@@ -19,7 +19,7 @@ export const NewsTickerToast = () => {
   };
 
   return (
-    <div className="fixed top-4 right-4 left-4 md:left-auto md:w-96 z-50 animate-slide-in-down">
+    <div className="fixed top-4 left-4 right-4 md:right-auto md:w-96 z-50 animate-slide-in-down">
       <div className={`bg-gradient-to-r ${getBgColor()} rounded-lg shadow-2xl border-2 p-4`}>
         <div className="flex items-start gap-3">
           <div className="flex-shrink-0">

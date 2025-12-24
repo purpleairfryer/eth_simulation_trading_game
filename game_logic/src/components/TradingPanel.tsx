@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
 import { useAudioStore } from '../store/audioStore';
+import { calculatePnL } from '../utils/pnl';
 import { POSITION_PERCENTAGES, LEVERAGE_UNLOCK_THRESHOLD, GAME_SPEED, SPEED_MULTIPLIERS } from '../constants';
 
 export const TradingPanel = () => {
   const {
     balance,
     currentPrice,
+    positions,
     openPosition,
     isPlaying,
     startGame,
@@ -15,6 +17,12 @@ export const TradingPanel = () => {
     setGameSpeed,
     leverageUnlocked
   } = useGameStore();
+
+  // Calculate portfolio value (sum of position sizes + unrealized P&L)
+  const portfolioValue = positions.reduce((total, position) => {
+    const { dollarPnL } = calculatePnL(position, currentPrice);
+    return total + position.size + dollarPnL;
+  }, 0);
 
   const [percentage, setPercentage] = useState(50);
   const [leverage, setLeverage] = useState(1);
@@ -47,16 +55,16 @@ export const TradingPanel = () => {
         {/* Account Info - Single row with 3 items */}
         <div className="grid grid-cols-3 gap-3">
           <div className="bg-slate-800/50 rounded-lg p-3 border border-emerald-900/20">
-            <div className="text-xs text-gray-400 mb-1">Pair</div>
-            <div className="text-sm font-mono text-white">ETH/USD</div>
+            <div className="text-xs text-gray-400 mb-1">Total</div>
+            <div className="text-sm font-mono text-emerald-400">${(balance + portfolioValue).toFixed(2)}</div>
           </div>
           <div className="bg-slate-800/50 rounded-lg p-3 border border-emerald-900/20">
-            <div className="text-xs text-gray-400 mb-1">Current Price</div>
-            <div className="text-sm font-mono text-emerald-400">${currentPrice.toFixed(2)}</div>
-          </div>
-          <div className="bg-slate-800/50 rounded-lg p-3 border border-emerald-900/20">
-            <div className="text-xs text-gray-400 mb-1">Balance</div>
+            <div className="text-xs text-gray-400 mb-1">Cash</div>
             <div className="text-sm font-mono text-white">${balance.toFixed(2)}</div>
+          </div>
+          <div className="bg-slate-800/50 rounded-lg p-3 border border-emerald-900/20">
+            <div className="text-xs text-gray-400 mb-1">Open Positions</div>
+            <div className="text-sm font-mono text-white">${portfolioValue.toFixed(2)}</div>
           </div>
         </div>
       </div>
